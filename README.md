@@ -1,7 +1,9 @@
-# Bob Terminal 🤖
+# BobBurn 🔥
 
-A terminal chat interface that connects to **IBM Bob** via Bob Shell and shows
-live token burn + Bobcoin cost tracking in a rich dashboard.
+> *Watch your Bobcoins burn, one prompt at a time.*
+
+Real-time Bobcoin metering for IBM Bob in your terminal — chat with Bob,
+see exactly what each prompt costs, and track your session burn live.
 
 ## Screenshot
 

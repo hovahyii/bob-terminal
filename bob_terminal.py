@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Bob Terminal -- Chat with IBM Bob in your terminal with live token burn tracking."""
+"""BobBurn -- Real-time Bobcoin metering for IBM Bob in your terminal."""
 
 import os
 import sys
@@ -223,9 +223,9 @@ def print_header():
     console.print(Text(HEADER, style="bold blue"), highlight=False)
     console.print(
         Panel(
-            Text("  Powered by IBM Bob Shell  |  BOB_API_KEY loaded", style="dim"),
+            Text("  Real-time Bobcoin metering for IBM Bob  |  BOB_API_KEY loaded", style="dim"),
             border_style="blue",
-            title="[bold blue]BOB TERMINAL v1.0[/bold blue]",
+            title="[bold blue]BobBurn v1.0[/bold blue]",
         )
     )
     console.print(
