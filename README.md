@@ -22,28 +22,42 @@ see exactly what each prompt costs, and track your session burn live.
 ## Requirements
 
 - Python 3.9+
-- [Bob Shell](https://bob.ibm.com/docs/shell/getting-started/install-and-setup) installed
-- An IBM Bob **Inference** API key from [bob.ibm.com](https://bob.ibm.com/admin/api-keys)
+- An IBM Bob **Inference** API key — get one at [bob.ibm.com/admin/api-keys](https://bob.ibm.com/admin/api-keys)
 
 ## Setup
 
+The installer handles Bob Shell + Python deps in one step.
+
+**Windows (PowerShell):**
+```powershell
+.\install.ps1
+```
+
+**macOS / Linux:**
 ```bash
-# 1. Install Bob Shell (Windows)
-powershell -c "irm https://bob.ibm.com/download/bobshell.ps1 | iex"
+chmod +x install.sh && ./install.sh
+```
+
+**Manual setup:**
+```bash
+# 1. Install Bob Shell
+powershell -c "irm https://bob.ibm.com/download/bobshell.ps1 | iex"  # Windows
+curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash            # macOS/Linux
 
 # 2. Install Python dependencies
 pip install -r requirements.txt
-
-# 3. Set your Bob Inference API key
-$env:BOB_API_KEY="bob_prod_bob-apikey_..."   # Windows PowerShell
-export BOB_API_KEY="bob_prod_bob-apikey_..." # macOS/Linux
 ```
 
 ## Usage
 
-```bash
-py bob_terminal.py        # Windows
-python bob_terminal.py    # macOS/Linux
+```powershell
+# Windows
+$env:BOB_API_KEY="bob_prod_bob-apikey_..."
+py bob_terminal.py
+
+# macOS/Linux
+export BOB_API_KEY="bob_prod_bob-apikey_..."
+python bob_terminal.py
 ```
 
 Type a message and press **Enter**. Type `exit` or `quit` to leave.
