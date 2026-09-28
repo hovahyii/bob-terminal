@@ -19,7 +19,26 @@ from rich.table import Table
 
 API_KEY   = os.getenv("BOB_API_KEY", "")
 TEAM_ID   = os.getenv("BOB_TEAM_ID", "")
-BOB_CMD   = os.getenv("BOB_CMD", "bob")          # path to bob binary if not on PATH
+
+def _find_bob() -> str:
+    """Return the bob executable path, searching npm global prefix."""
+    if os.getenv("BOB_CMD"):
+        return os.getenv("BOB_CMD")
+    try:
+        result = subprocess.run(
+            ["cmd", "/c", "npm", "prefix", "-g"],
+            capture_output=True, text=True, timeout=5
+        )
+        prefix = result.stdout.strip()
+        for name in ["bob.cmd", "bob"]:
+            candidate = os.path.join(prefix, name)
+            if os.path.exists(candidate):
+                return candidate
+    except Exception:
+        pass
+    return "bob"
+
+BOB_CMD = _find_bob()
 
 BURN_METER_WIDTH = 28
 BURN_METER_MAX   = 50_000   # tokens at which bar is "full" (Inference keys: large context)
